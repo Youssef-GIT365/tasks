@@ -20,7 +20,6 @@ class Product {
 }
 
 void main() {
-
   List<Product> products = [
     Product(
       id: 1,
@@ -52,26 +51,24 @@ void main() {
     ),
     Product(
       id: 5,
-      name: 'Course',
-      price: 200.0,
-      category: 'Education',
-      isAvailable: true,
-    ),
-    Product(
-      id: 6,
-      name: 'Pizza',
+      name: 'burger',
       price: 50.0,
       category: 'Food',
       isAvailable: true,
     ),
+    Product(
+      id: 6,
+      name: 'dart Course',
+      price: 200.0,
+      category: 'Education',
+      isAvailable: true,
+    ),
   ];
 
-  print('All Products');
+  print('all Products');
   for (var product in products) {
     print(product);
   }
-
-
 
   List<Product> availableProducts = products
       .where((product) => product.isAvailable)
@@ -81,12 +78,9 @@ void main() {
     print(product);
   }
 
-
-
   List<String> productNames = products.map((product) => product.name).toList();
   print('Product Names (map) ');
   print(productNames);
-
 
   List<String> availableElectronics = products
       .where(
@@ -96,13 +90,10 @@ void main() {
       .toList();
   print('Available Electronics Products');
   print(availableElectronics);
-  
-
 
   double totalPrice = products.fold(0.0, (sum, product) => sum + product.price);
   print('Total Price of All Products  ');
   print(totalPrice);
-
 
   double availableTotal = products
       .where((product) => product.isAvailable)
@@ -110,19 +101,13 @@ void main() {
   print('Total Price of Available Products ');
   print(availableTotal);
 
-
-  
   bool hasExpensiveProduct = products.any((product) => product.price > 20000);
   print('Has product with price > 20000 ');
   print(hasExpensiveProduct);
 
-
-
   bool allAbove100 = products.every((product) => product.price > 100);
   print('All products have price > 100 ');
   print(allAbove100);
-
-
 
   Product firstElectronics = products.firstWhere(
     (product) => product.category == 'Electronics',
@@ -130,16 +115,12 @@ void main() {
   print('First Electronics Product ');
   print(firstElectronics);
 
-
-
   List<Product> sortedProducts = List.from(products);
   sortedProducts.sort((a, b) => a.price.compareTo(b.price));
   print('Products Sorted by Price');
   for (var product in sortedProducts) {
     print(product);
   }
-  
-
 
   List<String> categories = ['Electronics', 'Education', 'Electronics', 'Food'];
   Set<String> uniqueCategories = categories.toSet();
